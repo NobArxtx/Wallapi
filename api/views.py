@@ -67,6 +67,8 @@ def wall_find(request):
         inf = walld(strin)
         
         if inf:
-            return HttpResponse(json.dumps({'search':strin,'Links':inf}))
+            respd = {'search':strin,'Links':inf}
+            return HttpResponse(json.dumps(respd,indent=4,sort_keys=True))
         else:
-            return HttpResponse(json.dumps({'search':inf}))
+            respd = {'search':inf}
+            return HttpResponse(json.dumps(respd,indent=4))

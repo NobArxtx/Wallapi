@@ -25,7 +25,7 @@ SECRET_KEY = '+04nb77o(t77xy1+1mx8%(m^((%pw^l6jtm%g*num)r(aoor2*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["wallpi.herokuapp.com"]
+ALLOWED_HOSTS = ["wallpi.herokuapp.com","127.0.0.1"]
 
 
 # Application definition
@@ -118,10 +118,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
-STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATIC_URL = '/nik/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, "assets")

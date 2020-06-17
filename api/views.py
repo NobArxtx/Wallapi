@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from bs4 import BeautifulSoup as soup
 import requests
 import html
@@ -63,12 +63,17 @@ def walld(strin: str):
 
 def wall_find(request):
     if request.method == 'GET':
-        strin = request.GET['search']
-        inf = walld(strin)
-        
-        if inf:
-            respd = {'search':strin,'Links':inf}
-            return HttpResponse(json.dumps(respd,indent=4,sort_keys=True))
+        strin = request.GET.get('search',None)
+        if strin == None:
+            return HttpResponseRedirect("/")
         else:
-            respd = {'search':inf}
-            return HttpResponse(json.dumps(respd,indent=4))
+            inf = walld(strin)
+        if bool(strin):
+            if inf:
+                respd = {'search':strin,'Links':inf}
+                return HttpResponse(json.dumps(respd,indent=4,sort_keys=True))
+            else:
+                respd = {'search':inf}
+                return HttpResponse(json.dumps(respd,indent=4))
+        else:
+            return HttpResponse("Why So Pro")

@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '+04nb77o(t77xy1+1mx8%(m^((%pw^l6jtm%g*num)r(aoor2*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["wallpi.herokuapp.com"]
 
 
 # Application definition

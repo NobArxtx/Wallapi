@@ -61,8 +61,22 @@ def walld(strin: str):
     except Exception:
         pass
     del list_a_s
+    if len(tit_links) == 0:
+        return False
     return tit_links
-
+def check_syntax(word):
+    lisu = []
+    for d in word:
+        if d in string.punctuation:
+            return False
+        if d in string.ascii_lowercase + string.ascii_uppercase + string.digits:
+             lisu.append(True)
+        else:
+             lisu.append(False)
+    if not False in lisu:
+        return True
+    else:
+        return False
 def wall_find(request):
     if request.method == 'GET':
         strin = request.GET.get('q',None)
@@ -70,18 +84,15 @@ def wall_find(request):
             return HttpResponseRedirect("/")
         else:
             inf = walld(strin)
-        r = """!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""
-        asl = string.ascii_lowercase + string.ascii_uppercase
-        if bool(strin) or not all(d in str(str) for d in r):
-            if all(d in strin for d in asl):
-                if inf:
-                    respd = {'query':strin,'Links':inf}
-                    return HttpResponse(json.dumps(respd,indent=4,sort_keys=True))
-                else:
-                    respd = {'query':inf}
-                    return HttpResponse(json.dumps(respd,indent=4))
+        if check_syntax(strin):
+            if inf:
+                respd = {'query':strin,'Links':inf}
+                return HttpResponse(json.dumps(respd,indent=4,sort_keys=True))
             else:
-                return HttpResponse('{"query": "Invalid!"}\nIf you are using symbols then remove them!')
+                respd = {'query':inf}
+                return HttpResponse(json.dumps(respd,indent=4))
+        else:
+             return HttpResponse('{"query": "Invalid!"}<br>If you are using symbols then remove them!')
       
 def red_to_index(request):
     return HttpResponseRedirect("/")

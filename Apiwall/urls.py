@@ -18,7 +18,7 @@ from django.urls import path,include
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('yekfd1832288/', admin.site.urls),
     path('wall/', include('wall.urls')),
      path('proxy/', include("proxy.urls")),
     path('', views.index),

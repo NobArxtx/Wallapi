@@ -170,9 +170,9 @@ Request</div>
 <pre class="CodeBlock-pre  language-python">
 <code class="  language-python"><span class="token keyword">&nbsp;&nbsp;&lt;query&gt; | Search Query</span> <span class="token string">
 Send Http request to <br>
-&nbsp;&nbsp;wallpi.herokuapp.com/wall/search/?q=&lt;query&gt;<br>
+&nbsp;&nbsp;wallpi.herokuapp.com/api?search=&lt;query&gt;<br>
   #Example <br>
-  https://wallpi.herokuapp.com/wall/search/?q=Luffy</span></code></pre>
+  https://wallpi.herokuapp.com/api?search=Luffy</span></code></pre>
 </div>
 </div>
 </div>

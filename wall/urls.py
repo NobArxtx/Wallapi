@@ -3,5 +3,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.wall_find),
+    path('search/', views.wall_find),
+    path('', views.red_to_index),
+    
 ]

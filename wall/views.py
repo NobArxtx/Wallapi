@@ -3,8 +3,10 @@ from django.http import HttpResponse,HttpResponseRedirect
 from bs4 import BeautifulSoup as soup
 import requests
 import html
+import string
 from random import randint,choice
 # Create your views here.
+
 import json 
 def walld(strin: str):
     if len(strin.split()) > 1:
@@ -63,17 +65,23 @@ def walld(strin: str):
 
 def wall_find(request):
     if request.method == 'GET':
-        strin = request.GET.get('search',None)
-        if strin == None:
+        strin = request.GET.get('q',None)
+        if strin == None or bool(strin) == False:
             return HttpResponseRedirect("/")
         else:
             inf = walld(strin)
-        if bool(strin):
-            if inf:
-                respd = {'search':strin,'Links':inf}
-                return HttpResponse(json.dumps(respd,indent=4,sort_keys=True))
+        r = """!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""
+        asl = string.ascii_lowercase + string.ascii_uppercase
+        if bool(strin) or not all(d in str(str) for d in r):
+            if all(d in strin for d in asl):
+                if inf:
+                    respd = {'query':strin,'Links':inf}
+                    return HttpResponse(json.dumps(respd,indent=4,sort_keys=True))
+                else:
+                    respd = {'query':inf}
+                    return HttpResponse(json.dumps(respd,indent=4))
             else:
-                respd = {'search':inf}
-                return HttpResponse(json.dumps(respd,indent=4))
-        else:
-            return HttpResponse("Why So Pro")
+                return HttpResponse('{"query": "Invalid!"}\nIf you are using symbols then remove them!')
+      
+def red_to_index(request):
+    return HttpResponseRedirect("/")

@@ -19,6 +19,7 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api', include('api.urls')),
+    path('wall/', include('wall.urls')),
+     path('proxy/', include("proxy.urls")),
     path('', views.index),
 ]

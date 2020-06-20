@@ -25,7 +25,7 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["wallpi.herokuapp.com","127.0.0.1","xpanonbotxp.tk"]
+ALLOWED_HOSTS = ["wallpi.herokuapp.com","127.0.0.1","xpanonbotxp.tk","localhost"]
 
 
 # Application definition
@@ -120,6 +120,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "statics"),
+    os.path.join(BASE_DIR, "static"),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "assets")

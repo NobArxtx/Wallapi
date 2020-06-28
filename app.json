@@ -1,0 +1,26 @@
+{
+    "name": "Wallpaper API",
+    "description": "Wallpaper API works with web Scraping",
+    "keywords": [
+        "API",
+        "Wallpaper",
+        "Heroku",
+        "Django"
+    ],
+"env": {
+        "SECRET_KEY": {
+            "description": "Generate your own https://miniwebtool.com/django-secret-key-generator/",
+            "required": true
+        },
+       {
+        "DISABLE_COLLECTSTATIC": {
+            "description": "Generate your own https://miniwebtool.com/django-secret-key-generator/"
+            "value": 1
+},
+"buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+
+}

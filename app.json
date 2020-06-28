@@ -14,7 +14,7 @@
                     },
        
         "DISABLE_COLLECTSTATIC": {
-            "description": "Generate your own https://miniwebtool.com/django-secret-key-generator/",
+            "description": "To disable Collect Static  ",
             "value": "1"
                     }
            },

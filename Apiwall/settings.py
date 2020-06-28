@@ -25,7 +25,8 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["wallpi.herokuapp.com","127.0.0.1","xpanonbotxp.tk","localhost"]
+HOST_APP_NAME = os.environ["APP_NAME"] + '.herokuapp.com'
+ALLOWED_HOSTS = ["wallpi.herokuapp.com","127.0.0.1","localhost",HOST_APP_NAME]
 
 
 # Application definition

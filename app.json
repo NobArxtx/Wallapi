@@ -12,7 +12,7 @@
             "description": "Generate your own https://miniwebtool.com/django-secret-key-generator/",
             "required": true
         },
-       {
+       
         "DISABLE_COLLECTSTATIC": {
             "description": "Generate your own https://miniwebtool.com/django-secret-key-generator/",
             "value": 1

@@ -16,6 +16,10 @@
         "DISABLE_COLLECTSTATIC": {
             "description": "To disable Collect Static  ",
             "value": "1"
+                    },
+        "APP_NAME": {
+            "description": "For allowed hosts",
+            "required": true
                     }
            },
 "buildpacks": [

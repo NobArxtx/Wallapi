@@ -17,7 +17,7 @@
             "description": "Generate your own https://miniwebtool.com/django-secret-key-generator/",
             "value": 1
        }
-       }
+       },
 "buildpacks": [
         {
             "url": "heroku/python"

@@ -77,9 +77,8 @@ def check_syntax(word):
         return True
     else:
         return False
-def wall_find(request):
+def wall_find(request,strin):
     if request.method == 'GET':
-        strin = request.GET.get('q',None)
         if strin == None or bool(strin) == False:
             return HttpResponseRedirect("/")
         else:

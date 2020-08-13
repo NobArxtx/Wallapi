@@ -70,7 +70,7 @@ def check_syntax(word):
     for d in word:
         if d in string.punctuation:
             return False
-        if d in string.ascii_lowercase + string.ascii_uppercase:
+        if d in string.ascii_lowercase + string.ascii_uppercase + ' ':
              lisu.append(True)
         else:
              lisu.append(False)
@@ -82,7 +82,7 @@ def wall_find(request,strin):
     if request.method == 'GET':
         if strin == None or bool(strin) == False:
             return HttpResponseRedirect("/")
-        strin = unquote(strin).decode('utf-8')
+        strin = unquote(strin).strip()
         if check_syntax(strin):
             inf = walld(strin)
             if inf:

@@ -3,6 +3,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from bs4 import BeautifulSoup as soup
 import requests
 import html
+from urllib.parse import unquote
 import string
 from random import randint,choice
 # Create your views here.
@@ -69,7 +70,7 @@ def check_syntax(word):
     for d in word:
         if d in string.punctuation:
             return False
-        if d in string.ascii_lowercase + string.ascii_uppercase + string.digits:
+        if d in string.ascii_lowercase + string.ascii_uppercase:
              lisu.append(True)
         else:
              lisu.append(False)
@@ -81,9 +82,9 @@ def wall_find(request,strin):
     if request.method == 'GET':
         if strin == None or bool(strin) == False:
             return HttpResponseRedirect("/")
-        else:
-            inf = walld(strin)
+        strin = unquote(strin).decode('utf-8')
         if check_syntax(strin):
+            inf = walld(strin)
             if inf:
                 respd = {'query':strin,'Links':inf}
                 return HttpResponse(json.dumps(respd,indent=4,sort_keys=True))

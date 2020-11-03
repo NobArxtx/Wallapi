@@ -18,7 +18,7 @@
             "value": "1"
                     },
         "APP_NAME": {
-            "description": "For allowed hosts",
+            "description": "For allowed o hosts",
             "required": true
                     }
            },
